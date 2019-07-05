@@ -2,12 +2,17 @@ import { Module, DynamicModule } from '@nestjs/common';
 import { CommonGateway } from './common.gateway';
 import { CommonService } from './common.service';
 
-@Module({
-  imports: [],
-  providers: [CommonGateway, CommonService],
-  exports: [CommonService],
-})
+@Module({})
 export class CommonModule {
+  static forRoot(): DynamicModule {
+    return {
+      module: CommonModule,
+      imports: [],
+      providers: [CommonGateway, CommonService],
+      exports: [CommonService],
+    };
+  }
+
   static forFeature(): DynamicModule {
     return {
       module: CommonModule,

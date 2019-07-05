@@ -3,7 +3,7 @@ import { CommonModule } from './common/common.module';
 import { DatesModule } from './dates/dates.module';
 
 @Module({
-  imports: [CommonModule, DatesModule],
+  imports: [CommonModule.forRoot(), DatesModule],
   controllers: [],
   providers: [],
 })
